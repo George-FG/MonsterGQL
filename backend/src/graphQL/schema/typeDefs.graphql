@@ -1,6 +1,7 @@
 type Query {
   getMonsterByName(name: String!): MonsterDrink
   logInByNameAndPassword(userName: String!, password: String!): Boolean!
+  getUsersRankedMonsters(userId: Int!): [MonsterDrink]!
 }
 
 type Mutation {
@@ -18,6 +19,6 @@ type MonsterDrink {
 type MonsterFan {
   id: Int!
   userName: String
-  rankedMonsters: [MonsterDrink!]!
+  rankedMonsters: [MonsterDrink!]! #this is going to be the users individual ranked monsters
   password: String!
 }

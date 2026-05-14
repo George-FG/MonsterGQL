@@ -47,12 +47,18 @@ export type MutationUpdateGlobalRankForMonsterArgs = {
 export type Query = {
   __typename?: 'Query';
   getMonsterByName?: Maybe<MonsterDrink>;
+  getUsersRankedMonsters: Array<Maybe<MonsterDrink>>;
   logInByNameAndPassword: Scalars['Boolean']['output'];
 };
 
 
 export type QueryGetMonsterByNameArgs = {
   name: Scalars['String']['input'];
+};
+
+
+export type QueryGetUsersRankedMonstersArgs = {
+  userId: Scalars['Int']['input'];
 };
 
 
@@ -177,6 +183,7 @@ export type MutationResolvers<ContextType = any, ParentType extends ResolversPar
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
   getMonsterByName?: Resolver<Maybe<ResolversTypes['MonsterDrink']>, ParentType, ContextType, RequireFields<QueryGetMonsterByNameArgs, 'name'>>;
+  getUsersRankedMonsters?: Resolver<Array<Maybe<ResolversTypes['MonsterDrink']>>, ParentType, ContextType, RequireFields<QueryGetUsersRankedMonstersArgs, 'userId'>>;
   logInByNameAndPassword?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType, RequireFields<QueryLogInByNameAndPasswordArgs, 'password' | 'userName'>>;
 };
 
