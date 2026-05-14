@@ -7,6 +7,7 @@
     "frontend:build": "npm --prefix frontend run build",
     "frontend:lint": "npm --prefix frontend run lint",
     "frontend:lint:fix": "npm --prefix frontend run lint:fix",
+    "frontend:typecheck": "npm --prefix frontend run typecheck",
     "backend": "npm --prefix backend run dev",
     "backend:build": "npm --prefix backend run build",
     "backend:lint": "npm --prefix backend run lint",
