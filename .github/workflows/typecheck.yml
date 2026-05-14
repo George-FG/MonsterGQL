@@ -25,7 +25,6 @@ jobs:
         working-directory: frontend
 
       - name: Install backend dependencies
-        if: hashFiles('backend/package.json') != ''
         run: npm install
         working-directory: backend
 
@@ -33,5 +32,4 @@ jobs:
         run: npm run frontend:typecheck
 
       - name: Typecheck backend
-        if: hashFiles('backend/package.json') != ''
         run: npm run backend:typecheck

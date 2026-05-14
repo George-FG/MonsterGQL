@@ -29,7 +29,6 @@ jobs:
         working-directory: frontend
 
       - name: Install backend dependencies
-        if: hashFiles('backend/package.json') != ''
         run: npm install
         working-directory: backend
 
@@ -40,5 +39,4 @@ jobs:
         run: npm run frontend:lint
 
       - name: Lint backend
-        if: hashFiles('backend/package.json') != ''
         run: npm run backend:lint
