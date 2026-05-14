@@ -16,11 +16,22 @@ jobs:
         with:
           node-version: 22
           cache: npm
-          cache-dependency-path: frontend/package-lock.json
+          cache-dependency-path: |
+            frontend/package-lock.json
+            backend/package-lock.json
 
       - name: Install frontend dependencies
         run: npm install
         working-directory: frontend
 
+      - name: Install backend dependencies
+        if: hashFiles('backend/package.json') != ''
+        run: npm install
+        working-directory: backend
+
       - name: Typecheck frontend
         run: npm run frontend:typecheck
+
+      - name: Typecheck backend
+        if: hashFiles('backend/package.json') != ''
+        run: npm run backend:typecheck
