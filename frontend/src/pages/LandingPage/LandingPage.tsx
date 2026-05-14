@@ -1,9 +1,11 @@
-import { useNavigate } from 'react-router-dom';
-import Button from '../../components/Button/Button';
-import './LandingPage.css';
+import './LandingPage.css'
+
+import { useNavigate } from 'react-router-dom'
+
+import Button from '../../components/Button/Button'
 
 function LandingPage() {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   return (
     <main className="landing-page">
@@ -16,7 +18,7 @@ function LandingPage() {
         </Button>
       </div>
     </main>
-  );
+  )
 }
 
-export default LandingPage;
+export default LandingPage
