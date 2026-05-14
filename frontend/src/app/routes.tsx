@@ -1,6 +1,7 @@
-import { createBrowserRouter } from 'react-router-dom';
-import LandingPage from '../pages/LandingPage/LandingPage';
-import RankingPage from '../pages/RankingPage/RankingPage';
+import { createBrowserRouter } from 'react-router-dom'
+
+import LandingPage from '../pages/LandingPage/LandingPage'
+import RankingPage from '../pages/RankingPage/RankingPage'
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,6 @@ const router = createBrowserRouter([
     path: '/rank',
     element: <RankingPage />,
   },
-]);
+])
 
-export default router;
+export default router

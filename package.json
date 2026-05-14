@@ -1,0 +1,22 @@
+{
+  "name": "monstergql",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "frontend": "npm --prefix frontend run dev",
+    "frontend:build": "npm --prefix frontend run build",
+    "frontend:lint": "npm --prefix frontend run lint",
+    "frontend:lint:fix": "npm --prefix frontend run lint:fix",
+    "backend": "npm --prefix backend run dev",
+    "backend:build": "npm --prefix backend run build",
+    "backend:lint": "npm --prefix backend run lint",
+    "backend:lint:fix": "npm --prefix backend run lint:fix",
+    "lint": "npm run frontend:lint",
+    "lint:fix": "npm run frontend:lint:fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
+  },
+  "devDependencies": {
+    "prettier": "^3.5.3"
+  }
+}
