@@ -12,8 +12,8 @@
     "backend:build": "npm --prefix backend run build",
     "backend:lint": "npm --prefix backend run lint",
     "backend:lint:fix": "npm --prefix backend run lint:fix",
-    "lint": "npm run frontend:lint",
-    "lint:fix": "npm run frontend:lint:fix",
+    "lint": "npm run frontend:lint && npm run backend:lint",
+    "lint:fix": "npm run frontend:lint:fix && npm run backend:lint:fix",
     "format": "prettier . --write",
     "format:check": "prettier . --check"
   },
