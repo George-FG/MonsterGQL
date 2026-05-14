@@ -23,16 +23,32 @@ export type Scalars = {
 export type MonsterDrink = {
   __typename?: 'MonsterDrink'
   description: Scalars['String']['output']
+  globalRank: Scalars['Float']['output']
   name: Scalars['String']['output']
+  userRank?: Maybe<Scalars['Float']['output']>
+}
+
+export type MonsterFan = {
+  __typename?: 'MonsterFan'
+  id: Scalars['Int']['output']
+  password: Scalars['String']['output']
+  rankedMonsters: Array<MonsterDrink>
+  userName?: Maybe<Scalars['String']['output']>
 }
 
 export type Query = {
   __typename?: 'Query'
   getMonsterByName?: Maybe<MonsterDrink>
+  logInByNameAndPassword: Scalars['Boolean']['output']
 }
 
 export type QueryGetMonsterByNameArgs = {
   name: Scalars['String']['input']
+}
+
+export type QueryLogInByNameAndPasswordArgs = {
+  password: Scalars['String']['input']
+  userName: Scalars['String']['input']
 }
 
 export type ResolverTypeWrapper<T> = Promise<T> | T
@@ -133,7 +149,10 @@ export type DirectiveResolverFn<
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>
+  Float: ResolverTypeWrapper<Scalars['Float']['output']>
+  Int: ResolverTypeWrapper<Scalars['Int']['output']>
   MonsterDrink: ResolverTypeWrapper<MonsterDrink>
+  MonsterFan: ResolverTypeWrapper<MonsterFan>
   Query: ResolverTypeWrapper<Record<PropertyKey, never>>
   String: ResolverTypeWrapper<Scalars['String']['output']>
 }
@@ -141,7 +160,10 @@ export type ResolversTypes = {
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
   Boolean: Scalars['Boolean']['output']
+  Float: Scalars['Float']['output']
+  Int: Scalars['Int']['output']
   MonsterDrink: MonsterDrink
+  MonsterFan: MonsterFan
   Query: Record<PropertyKey, never>
   String: Scalars['String']['output']
 }
@@ -151,7 +173,19 @@ export type MonsterDrinkResolvers<
   ParentType extends ResolversParentTypes['MonsterDrink'] = ResolversParentTypes['MonsterDrink'],
 > = {
   description?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  globalRank?: Resolver<ResolversTypes['Float'], ParentType, ContextType>
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  userRank?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>
+}
+
+export type MonsterFanResolvers<
+  ContextType = any,
+  ParentType extends ResolversParentTypes['MonsterFan'] = ResolversParentTypes['MonsterFan'],
+> = {
+  id?: Resolver<ResolversTypes['Int'], ParentType, ContextType>
+  password?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  rankedMonsters?: Resolver<Array<ResolversTypes['MonsterDrink']>, ParentType, ContextType>
+  userName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>
 }
 
 export type QueryResolvers<
@@ -164,9 +198,16 @@ export type QueryResolvers<
     ContextType,
     RequireFields<QueryGetMonsterByNameArgs, 'name'>
   >
+  logInByNameAndPassword?: Resolver<
+    ResolversTypes['Boolean'],
+    ParentType,
+    ContextType,
+    RequireFields<QueryLogInByNameAndPasswordArgs, 'password' | 'userName'>
+  >
 }
 
 export type Resolvers<ContextType = any> = {
   MonsterDrink?: MonsterDrinkResolvers<ContextType>
+  MonsterFan?: MonsterFanResolvers<ContextType>
   Query?: QueryResolvers<ContextType>
 }

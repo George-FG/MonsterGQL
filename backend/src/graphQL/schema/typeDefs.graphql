@@ -1,8 +1,18 @@
 type Query {
   getMonsterByName(name: String!): MonsterDrink
+  logInByNameAndPassword(userName: String!, password: String!): Boolean!
 }
 
 type MonsterDrink {
   name: String!
   description: String!
+  globalRank: Float!
+  userRank: Float
+}
+
+type MonsterFan {
+  id: Int!
+  userName: String
+  rankedMonsters: [MonsterDrink!]!
+  password: String!
 }
