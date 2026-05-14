@@ -15,7 +15,13 @@
 
 .landing-actions {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: center;
+}
+
+.landing-user {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
 }

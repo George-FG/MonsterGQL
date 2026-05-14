@@ -8,7 +8,7 @@
     "frontend:lint": "npm --prefix frontend run lint",
     "frontend:lint:fix": "npm --prefix frontend run lint:fix",
     "frontend:typecheck": "npm --prefix frontend run typecheck",
-    "backend": "npm --prefix backend run dev",
+    "backend": "npm --prefix backend start",
     "backend:build": "npm --prefix backend run build",
     "backend:lint": "npm --prefix backend run lint",
     "backend:lint:fix": "npm --prefix backend run lint:fix",
@@ -18,7 +18,9 @@
     "typecheck": "npm run frontend:typecheck && npm run backend:typecheck",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "install:all": "npm install && npm --prefix frontend install && npm --prefix backend install"
+    "install:all": "npm install && npm --prefix frontend install && npm --prefix backend install",
+    "prisma:generate": "npm --prefix backend run prisma:generate",
+    "prisma:migrate": "npm --prefix backend run prisma:migrate"
   },
   "devDependencies": {
     "prettier": "^3.5.3"

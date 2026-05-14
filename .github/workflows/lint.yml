@@ -2,6 +2,7 @@ name: Lint
 
 on:
   pull_request:
+  workflow_dispatch:
 
 jobs:
   lint:
@@ -30,6 +31,10 @@ jobs:
 
       - name: Install backend dependencies
         run: npm install
+        working-directory: backend
+
+      - name: Generate Prisma client
+        run: npx prisma generate
         working-directory: backend
 
       - name: Check formatting

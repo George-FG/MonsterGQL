@@ -20,6 +20,12 @@ export type Scalars = {
   Float: { input: number; output: number }
 }
 
+export type AuthPayload = {
+  __typename?: 'AuthPayload'
+  token: Scalars['String']['output']
+  user: User
+}
+
 export type MonsterDrink = {
   __typename?: 'MonsterDrink'
   description: Scalars['String']['output']
@@ -36,19 +42,37 @@ export type MonsterFan = {
   userName?: Maybe<Scalars['String']['output']>
 }
 
+export type Mutation = {
+  __typename?: 'Mutation'
+  login: AuthPayload
+  logout: Scalars['Boolean']['output']
+  signup: AuthPayload
+}
+
+export type MutationLoginArgs = {
+  email: Scalars['String']['input']
+  password: Scalars['String']['input']
+}
+
+export type MutationSignupArgs = {
+  email: Scalars['String']['input']
+  password: Scalars['String']['input']
+}
+
 export type Query = {
   __typename?: 'Query'
   getMonsterByName?: Maybe<MonsterDrink>
-  logInByNameAndPassword: Scalars['Boolean']['output']
+  me?: Maybe<User>
 }
 
 export type QueryGetMonsterByNameArgs = {
   name: Scalars['String']['input']
 }
 
-export type QueryLogInByNameAndPasswordArgs = {
-  password: Scalars['String']['input']
-  userName: Scalars['String']['input']
+export type User = {
+  __typename?: 'User'
+  email: Scalars['String']['output']
+  id: Scalars['String']['output']
 }
 
 export type ResolverTypeWrapper<T> = Promise<T> | T
@@ -148,24 +172,38 @@ export type DirectiveResolverFn<
 
 /** Mapping between all available schema types and the resolvers types */
 export type ResolversTypes = {
+  AuthPayload: ResolverTypeWrapper<AuthPayload>
   Boolean: ResolverTypeWrapper<Scalars['Boolean']['output']>
   Float: ResolverTypeWrapper<Scalars['Float']['output']>
   Int: ResolverTypeWrapper<Scalars['Int']['output']>
   MonsterDrink: ResolverTypeWrapper<MonsterDrink>
   MonsterFan: ResolverTypeWrapper<MonsterFan>
+  Mutation: ResolverTypeWrapper<Record<PropertyKey, never>>
   Query: ResolverTypeWrapper<Record<PropertyKey, never>>
   String: ResolverTypeWrapper<Scalars['String']['output']>
+  User: ResolverTypeWrapper<User>
 }
 
 /** Mapping between all available schema types and the resolvers parents */
 export type ResolversParentTypes = {
+  AuthPayload: AuthPayload
   Boolean: Scalars['Boolean']['output']
   Float: Scalars['Float']['output']
   Int: Scalars['Int']['output']
   MonsterDrink: MonsterDrink
   MonsterFan: MonsterFan
+  Mutation: Record<PropertyKey, never>
   Query: Record<PropertyKey, never>
   String: Scalars['String']['output']
+  User: User
+}
+
+export type AuthPayloadResolvers<
+  ContextType = any,
+  ParentType extends ResolversParentTypes['AuthPayload'] = ResolversParentTypes['AuthPayload'],
+> = {
+  token?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  user?: Resolver<ResolversTypes['User'], ParentType, ContextType>
 }
 
 export type MonsterDrinkResolvers<
@@ -188,6 +226,25 @@ export type MonsterFanResolvers<
   userName?: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType>
 }
 
+export type MutationResolvers<
+  ContextType = any,
+  ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation'],
+> = {
+  login?: Resolver<
+    ResolversTypes['AuthPayload'],
+    ParentType,
+    ContextType,
+    RequireFields<MutationLoginArgs, 'email' | 'password'>
+  >
+  logout?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>
+  signup?: Resolver<
+    ResolversTypes['AuthPayload'],
+    ParentType,
+    ContextType,
+    RequireFields<MutationSignupArgs, 'email' | 'password'>
+  >
+}
+
 export type QueryResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query'],
@@ -198,16 +255,22 @@ export type QueryResolvers<
     ContextType,
     RequireFields<QueryGetMonsterByNameArgs, 'name'>
   >
-  logInByNameAndPassword?: Resolver<
-    ResolversTypes['Boolean'],
-    ParentType,
-    ContextType,
-    RequireFields<QueryLogInByNameAndPasswordArgs, 'password' | 'userName'>
-  >
+  me?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>
+}
+
+export type UserResolvers<
+  ContextType = any,
+  ParentType extends ResolversParentTypes['User'] = ResolversParentTypes['User'],
+> = {
+  email?: Resolver<ResolversTypes['String'], ParentType, ContextType>
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>
 }
 
 export type Resolvers<ContextType = any> = {
+  AuthPayload?: AuthPayloadResolvers<ContextType>
   MonsterDrink?: MonsterDrinkResolvers<ContextType>
   MonsterFan?: MonsterFanResolvers<ContextType>
+  Mutation?: MutationResolvers<ContextType>
   Query?: QueryResolvers<ContextType>
+  User?: UserResolvers<ContextType>
 }
