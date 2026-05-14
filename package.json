@@ -17,7 +17,8 @@
     "lint:fix": "npm run frontend:lint:fix && npm run backend:lint:fix",
     "typecheck": "npm run frontend:typecheck && npm run backend:typecheck",
     "format": "prettier . --write",
-    "format:check": "prettier . --check"
+    "format:check": "prettier . --check",
+    "install:all": "npm install && npm --prefix frontend install && npm --prefix backend install"
   },
   "devDependencies": {
     "prettier": "^3.5.3"
