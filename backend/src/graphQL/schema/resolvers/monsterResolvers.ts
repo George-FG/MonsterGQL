@@ -5,6 +5,7 @@ export const monsterResolvers: Partial<Resolvers> = {
     getMonsterByName: (_: unknown, args) => ({
       name: args.name,
       description: 'yummy',
+      globalRank: 1,
     }),
   },
 }
