@@ -3,11 +3,16 @@ type Query {
   logInByNameAndPassword(userName: String!, password: String!): Boolean!
 }
 
+type Mutation {
+  updateGlobalRankForMonster(monsterDrinkName: String!, userRank: Int!): Float
+}
+
 type MonsterDrink {
   name: String!
   description: String!
   globalRank: Float!
   userRank: Float
+  totalVotes: Int!
 }
 
 type MonsterFan {

@@ -3,5 +3,5 @@ export const logInUser = (userName: string, password: string): boolean => {
     return true
   } else {
     return false
-  }
+  } // WIP
 }
