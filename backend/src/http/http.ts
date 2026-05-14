@@ -1,7 +1,7 @@
-import express from "express";
-import cors from "cors";
-import { expressMiddleware } from "@as-integrations/express5";
 import { ApolloServer, BaseContext } from "@apollo/server";
+import { expressMiddleware } from "@as-integrations/express5";
+import cors from "cors";
+import express from "express";
 
 export const runHttpServer = async (server: ApolloServer<BaseContext>) => {
   const app = express();
