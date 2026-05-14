@@ -13,7 +13,7 @@ export const updateGlobalRankForMonsterLib = (targetDrinkName: string, userRank:
   const targetMonster = getMonsterByNameLib(targetDrinkName)
   const currRank = targetMonster.globalRank
   const totalVotes = targetMonster.totalVotes
-  const newGlobalRank = (currRank + currRank) / (totalVotes + 1)
+  const newGlobalRank = (currRank + userRank) / (totalVotes + 1)
 
   return newGlobalRank
 }

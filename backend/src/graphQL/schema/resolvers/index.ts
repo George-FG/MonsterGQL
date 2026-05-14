@@ -9,4 +9,7 @@ export const resolvers = {
   Mutation: {
     ...monsterResolvers.Mutation,
   },
+  MonsterFan: {
+    ...userResolvers.MonsterFan,
+  },
 }

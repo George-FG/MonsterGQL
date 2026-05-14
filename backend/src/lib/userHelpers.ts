@@ -10,5 +10,6 @@ export const logInUser = (userName: string, password: string): boolean => {
 }
 
 export const getUsersRankedMonstersLib = (id: number): MonsterDrink[] => {
-  return [getMonsterByNameLib('test')]
+  // this is not how it will be handled, we will instead need to point to db entry containing at least the names of monsters for a given person
+  return [getMonsterByNameLib(id.toString())]
 }
