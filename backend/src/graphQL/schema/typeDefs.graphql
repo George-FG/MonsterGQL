@@ -1,0 +1,8 @@
+type Query {
+  getMonsterByName(name: String!): MonsterDrink
+}
+
+type MonsterDrink {
+  name: String!
+  description: String!
+}
