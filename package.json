@@ -18,7 +18,9 @@
     "typecheck": "npm run frontend:typecheck && npm run backend:typecheck",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
-    "install:all": "npm install && npm --prefix frontend install && npm --prefix backend install"
+    "install:all": "npm install && npm --prefix frontend install && npm --prefix backend install",
+    "prisma:generate": "npm --prefix backend exec -- prisma generate",
+    "prisma:migrate": "npm --prefix backend exec -- prisma migrate dev"
   },
   "devDependencies": {
     "prettier": "^3.5.3"

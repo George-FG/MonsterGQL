@@ -1,3 +1,5 @@
+import 'dotenv/config'
+
 import { runGqlServer } from './graphQL/graphql'
 import { runHttpServer } from './http/http'
 

@@ -1,11 +1,11 @@
-name: Typecheck
+name: Build
 
 on:
   pull_request:
   workflow_dispatch:
 
 jobs:
-  typecheck:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,8 +29,14 @@ jobs:
         run: npm install
         working-directory: backend
 
-      - name: Typecheck frontend
-        run: npm run frontend:typecheck
+      - name: Migrate database
+        run: npx prisma migrate deploy
+        working-directory: backend
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
 
-      - name: Typecheck backend
-        run: npm run backend:typecheck
+      - name: Build frontend
+        run: npm run frontend:build
+
+      - name: Build backend
+        run: npm run backend:build

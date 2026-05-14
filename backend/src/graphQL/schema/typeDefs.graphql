@@ -1,6 +1,22 @@
 type Query {
   getMonsterByName(name: String!): MonsterDrink
-  logInByNameAndPassword(userName: String!, password: String!): Boolean!
+  me: User
+}
+
+type Mutation {
+  signup(email: String!, password: String!): AuthPayload!
+  login(email: String!, password: String!): AuthPayload!
+  logout: Boolean!
+}
+
+type User {
+  id: String!
+  email: String!
+}
+
+type AuthPayload {
+  token: String!
+  user: User!
 }
 
 type MonsterDrink {

@@ -1,11 +1,12 @@
-// resolver types within here
-
+import { authResolvers } from './authResolvers'
 import { monsterResolvers } from './monsterResolvers'
-import { userResolvers } from './userResolvers'
 
 export const resolvers = {
   Query: {
     ...monsterResolvers.Query,
-    ...userResolvers.Query,
+    ...authResolvers.Query,
+  },
+  Mutation: {
+    ...authResolvers.Mutation,
   },
 }
