@@ -1,11 +1,11 @@
-import { ApolloServer } from "@apollo/server";
-import { resolvers } from "./schema/resolvers/index";
-import { typeDefs } from "./schema/typeDefs";
+import { ApolloServer } from '@apollo/server'
+import { resolvers } from './schema/resolvers/index'
+import { typeDefs } from './schema/typeDefs'
 
-const schema = { typeDefs, resolvers };
+const schema = { typeDefs, resolvers }
 
 export const runGqlServer = async () => {
-  const server = new ApolloServer(schema);
-  await server.start();
-  return server;
-};
+  const server = new ApolloServer(schema)
+  await server.start()
+  return server
+}

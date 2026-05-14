@@ -20,4 +20,4 @@ generates:
         Time: string
         Date: string
         DateTime: string
-        Json: "{ [key: string]: any } | string | string[] | { [key: string]: any | boolean | boolean[] | number | number[]}[]"
+        Json: '{ [key: string]: any } | string | string[] | { [key: string]: any | boolean | boolean[] | number | number[]}[]'

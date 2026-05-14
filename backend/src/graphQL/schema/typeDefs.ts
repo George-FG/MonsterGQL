@@ -1,6 +1,6 @@
-import { readFileSync } from "node:fs";
-import { join } from "node:path";
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 
-const path = join(__dirname, "typeDefs.graphql");
+const path = join(__dirname, 'typeDefs.graphql')
 
-export const typeDefs = readFileSync(path, "utf8");
+export const typeDefs = readFileSync(path, 'utf8')
