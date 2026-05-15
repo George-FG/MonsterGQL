@@ -17,6 +17,16 @@ npm run install:all
 
 ## Running the app
 
+For local db, simple flow is:
+
+```
+npm run db:start
+npm run primsa:migrate #if you havent already
+npm run prisma:generate #if you havent already
+npm run backend
+npm run frontend
+```
+
 All commands run from the root of the repository.
 
 | Command                  | Description                       |
@@ -42,4 +52,23 @@ All commands run from the root of the repository.
 MonsterGQL/
   frontend/   # React + Vite frontend
   backend/    # Express + Apollo GraphQL backend
+  localdb/    # Docker Compose for local PostgreSQL
 ```
+
+## Local database
+
+Requires [Docker](https://docs.docker.com/get-docker/). Start the PostgreSQL container with:
+
+```bash
+npm run db:start   # start (detached)
+npm run db:stop    # stop
+```
+
+Then copy the local env template and run migrations:
+
+```bash
+cp backend/.env.local.example backend/.env
+npm run prisma:migrate
+```
+
+See [localdb/README.md](localdb/README.md) for full details.
