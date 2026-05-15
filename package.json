@@ -18,6 +18,8 @@
     "typecheck": "npm run frontend:typecheck && npm run backend:typecheck",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
+    "db:start": "docker compose -f localdb/docker-compose.yml up -d",
+    "db:stop": "docker compose -f localdb/docker-compose.yml down",
     "install:all": "npm install && npm --prefix frontend install && npm --prefix backend install",
     "prisma:generate": "npm --prefix backend run prisma:generate",
     "prisma:migrate": "npm --prefix backend run prisma:migrate"
