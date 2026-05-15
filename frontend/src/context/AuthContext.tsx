@@ -1,8 +1,8 @@
 import { useMutation, useQuery } from '@apollo/client/react'
 import { useState } from 'react'
 
-import apolloClient from '../lib/apollo'
 import { LOGOUT_MUTATION, ME_QUERY } from '../graphql/operations'
+import apolloClient from '../lib/apollo'
 import type { AuthUser } from './auth'
 import { AuthContext } from './auth'
 
