@@ -71,4 +71,12 @@ cp backend/.env.local.example backend/.env
 npm run prisma:migrate
 ```
 
+To seed the database with ~20 Monster drinks:
+
+```bash
+npm run seed
+```
+
+The seed script is safe to re-run — it skips any drink that already exists by name.
+
 See [localdb/README.md](localdb/README.md) for full details.

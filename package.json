@@ -23,6 +23,7 @@
     "install:all": "npm install && npm --prefix frontend install && npm --prefix backend install",
     "prisma:generate": "npm --prefix backend run prisma:generate",
     "prisma:migrate": "npm --prefix backend run prisma:migrate",
+    "seed": "npm --prefix backend run seed",
     "codegen": "npm run prisma:generate && npm --prefix backend run codegen && npm --prefix frontend run codegen",
     "prepare": "husky"
   },

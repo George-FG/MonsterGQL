@@ -26,7 +26,8 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prisma:generate": "npm exec -- prisma generate",
-    "prisma:migrate": "npm exec -- prisma migrate dev"
+    "prisma:migrate": "npm exec -- prisma migrate dev",
+    "seed": "tsx scripts/seedDrinks.ts"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

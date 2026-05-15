@@ -50,6 +50,7 @@ npm start
 | `npm run lint:fix`        | Auto-fix ESLint errors                           |
 | `npm run prisma:migrate`  | Run pending DB migrations (`prisma migrate dev`) |
 | `npm run prisma:generate` | Regenerate the Prisma client                     |
+| `npm run seed`            | Seed the DB with Monster drinks                  |
 
 ## Pre-build (Prisma)
 
