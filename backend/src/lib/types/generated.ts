@@ -30,6 +30,7 @@ export type MonsterDrink = {
   __typename?: 'MonsterDrink'
   description: Scalars['String']['output']
   globalRank: Scalars['Float']['output']
+  id: Scalars['String']['output']
   name: Scalars['String']['output']
   userRank?: Maybe<Scalars['Float']['output']>
 }
@@ -44,9 +45,16 @@ export type MonsterFan = {
 
 export type Mutation = {
   __typename?: 'Mutation'
+  addNewMonsterFlavor: MonsterDrink
   login: AuthPayload
   logout: Scalars['Boolean']['output']
   signup: AuthPayload
+}
+
+export type MutationAddNewMonsterFlavorArgs = {
+  description: Scalars['String']['input']
+  globalRank: Scalars['Float']['input']
+  name: Scalars['String']['input']
 }
 
 export type MutationLoginArgs = {
@@ -212,6 +220,7 @@ export type MonsterDrinkResolvers<
 > = {
   description?: Resolver<ResolversTypes['String'], ParentType, ContextType>
   globalRank?: Resolver<ResolversTypes['Float'], ParentType, ContextType>
+  id?: Resolver<ResolversTypes['String'], ParentType, ContextType>
   name?: Resolver<ResolversTypes['String'], ParentType, ContextType>
   userRank?: Resolver<Maybe<ResolversTypes['Float']>, ParentType, ContextType>
 }
@@ -230,6 +239,12 @@ export type MutationResolvers<
   ContextType = any,
   ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation'],
 > = {
+  addNewMonsterFlavor?: Resolver<
+    ResolversTypes['MonsterDrink'],
+    ParentType,
+    ContextType,
+    RequireFields<MutationAddNewMonsterFlavorArgs, 'description' | 'globalRank' | 'name'>
+  >
   login?: Resolver<
     ResolversTypes['AuthPayload'],
     ParentType,

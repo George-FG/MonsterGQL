@@ -18,11 +18,9 @@
   },
   "scripts": {
     "dev": "tsx watch src/index.ts",
-    "build": "rimraf ./dist && tsc && copyfiles --up 1 **/*.graphql ./dist ",
-    "start": "npm run build && node dist/index.js",
+    "build": "rimraf ./dist && tsc && copyfiles **/*.graphql ./dist",
+    "start": "npm run build && node dist/src/index.js",
     "typecheck": "tsc --noEmit",
-    "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
     "codegen": "graphql-codegen --config ./codegen.yml",
     "test": "vitest",
     "lint": "eslint .",
