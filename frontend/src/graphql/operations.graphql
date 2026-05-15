@@ -1,19 +1,21 @@
-mutation Login($email: String!, $password: String!) {
-  login(email: $email, password: $password) {
+mutation Login($identifier: String!, $password: String!) {
+  login(identifier: $identifier, password: $password) {
     token
     user {
       id
       email
+      username
     }
   }
 }
 
-mutation Signup($email: String!, $password: String!) {
-  signup(email: $email, password: $password) {
+mutation Signup($email: String!, $username: String!, $password: String!) {
+  signup(email: $email, username: $username, password: $password) {
     token
     user {
       id
       email
+      username
     }
   }
 }
@@ -26,5 +28,6 @@ query Me {
   me {
     id
     email
+    username
   }
 }

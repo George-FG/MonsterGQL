@@ -11,12 +11,12 @@ import { LOGIN_MUTATION } from '../../graphql/operations'
 function LoginPage() {
   const navigate = useNavigate()
   const { setAuth } = useAuth()
-  const [email, setEmail] = useState('')
+  const [identifier, setIdentifier] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
 
   const [login, { loading }] = useMutation<{
-    login: { token: string; user: { id: string; email: string } }
+    login: { token: string; user: { id: string; email: string; username: string } }
   }>(LOGIN_MUTATION, {
     onCompleted: (data) => {
       setAuth(data.login.token, data.login.user)
@@ -28,7 +28,7 @@ function LoginPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
-    login({ variables: { email, password } })
+    login({ variables: { identifier, password } })
   }
 
   return (
@@ -36,12 +36,12 @@ function LoginPage() {
       <h1 className="auth-title">Login</h1>
       <form className="auth-form" onSubmit={handleSubmit}>
         <label className="auth-label">
-          Email
+          Email or username
           <input
             className="auth-input"
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+            value={identifier}
+            onChange={(e) => setIdentifier(e.target.value)}
             required
           />
         </label>

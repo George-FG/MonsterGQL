@@ -1,6 +1,7 @@
 import { useMutation, useQuery } from '@apollo/client/react'
 import { useState } from 'react'
 
+import apolloClient from '../lib/apollo'
 import { LOGOUT_MUTATION, ME_QUERY } from '../graphql/operations'
 import type { AuthUser } from './auth'
 import { AuthContext } from './auth'
@@ -28,6 +29,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     await logout()
     localStorage.removeItem('session_token')
     setLocalUser(null)
+    await apolloClient.clearStore()
   }
 
   return (

@@ -4,8 +4,8 @@ type Query {
 }
 
 type Mutation {
-  signup(email: String!, password: String!): AuthPayload!
-  login(email: String!, password: String!): AuthPayload!
+  signup(email: String!, username: String!, password: String!): AuthPayload!
+  login(identifier: String!, password: String!): AuthPayload!
   logout: Boolean!
   addNewMonsterFlavor(name: String!, description: String!, globalRank: Float!): MonsterDrink!
 }
@@ -13,6 +13,7 @@ type Mutation {
 type User {
   id: String!
   email: String!
+  username: String!
 }
 
 type AuthPayload {
