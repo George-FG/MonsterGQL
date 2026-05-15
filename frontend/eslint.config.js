@@ -8,7 +8,7 @@ import eslintConfigPrettier from 'eslint-config-prettier'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'src/graphql/generated.ts', 'src/graphql/operations.ts']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [

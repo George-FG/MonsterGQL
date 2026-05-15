@@ -22,7 +22,8 @@
     "db:stop": "docker compose -f localdb/docker-compose.yml down",
     "install:all": "npm install && npm --prefix frontend install && npm --prefix backend install",
     "prisma:generate": "npm --prefix backend run prisma:generate",
-    "prisma:migrate": "npm --prefix backend run prisma:migrate"
+    "prisma:migrate": "npm --prefix backend run prisma:migrate",
+    "codegen": "npm run prisma:generate && npm --prefix backend run codegen && npm --prefix frontend run codegen"
   },
   "devDependencies": {
     "prettier": "^3.5.3"
