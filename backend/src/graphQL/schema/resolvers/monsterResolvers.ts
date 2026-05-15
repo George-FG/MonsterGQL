@@ -3,6 +3,7 @@ import { Resolvers } from '../../../lib/types/generated'
 
 export const monsterResolvers: Partial<Resolvers> = {
   Query: {
+    getAllDrinks: (_: unknown, _args: unknown, ctx) => ctx.prisma.monsterDrink.findMany(),
     getMonsterByName: (_: unknown, args, ctx) => getMonsterByNameLib(args.name, ctx),
   },
   Mutation: {
@@ -11,8 +12,8 @@ export const monsterResolvers: Partial<Resolvers> = {
         const newMonster = await ctx.prisma.monsterDrink.create({
           data: {
             name: args.name,
-            description: args.description,
-            globalRank: args.globalRank,
+            description: args.description ?? '',
+            globalRank: args.globalRank ?? 0,
           },
         })
 

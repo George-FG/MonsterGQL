@@ -49,8 +49,8 @@ export type Mutation = {
 
 
 export type MutationAddNewMonsterFlavorArgs = {
-  description: Scalars['String']['input'];
-  globalRank: Scalars['Float']['input'];
+  description?: InputMaybe<Scalars['String']['input']>;
+  globalRank?: InputMaybe<Scalars['Float']['input']>;
   name: Scalars['String']['input'];
 };
 
@@ -69,6 +69,7 @@ export type MutationSignupArgs = {
 
 export type Query = {
   __typename?: 'Query';
+  getAllDrinks: Array<MonsterDrink>;
   getMonsterByName?: Maybe<MonsterDrink>;
   me?: Maybe<User>;
 };
@@ -205,13 +206,14 @@ export type MonsterFanResolvers<ContextType = any, ParentType extends ResolversP
 };
 
 export type MutationResolvers<ContextType = any, ParentType extends ResolversParentTypes['Mutation'] = ResolversParentTypes['Mutation']> = {
-  addNewMonsterFlavor?: Resolver<ResolversTypes['MonsterDrink'], ParentType, ContextType, RequireFields<MutationAddNewMonsterFlavorArgs, 'description' | 'globalRank' | 'name'>>;
+  addNewMonsterFlavor?: Resolver<ResolversTypes['MonsterDrink'], ParentType, ContextType, RequireFields<MutationAddNewMonsterFlavorArgs, 'name'>>;
   login?: Resolver<ResolversTypes['AuthPayload'], ParentType, ContextType, RequireFields<MutationLoginArgs, 'identifier' | 'password'>>;
   logout?: Resolver<ResolversTypes['Boolean'], ParentType, ContextType>;
   signup?: Resolver<ResolversTypes['AuthPayload'], ParentType, ContextType, RequireFields<MutationSignupArgs, 'email' | 'password' | 'username'>>;
 };
 
 export type QueryResolvers<ContextType = any, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = {
+  getAllDrinks?: Resolver<Array<ResolversTypes['MonsterDrink']>, ParentType, ContextType>;
   getMonsterByName?: Resolver<Maybe<ResolversTypes['MonsterDrink']>, ParentType, ContextType, RequireFields<QueryGetMonsterByNameArgs, 'name'>>;
   me?: Resolver<Maybe<ResolversTypes['User']>, ParentType, ContextType>;
 };

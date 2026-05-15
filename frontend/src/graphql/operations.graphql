@@ -24,10 +24,25 @@ mutation Logout {
   logout
 }
 
+mutation AddDrink($name: String!, $description: String) {
+  addNewMonsterFlavor(name: $name, description: $description) {
+    id
+    name
+  }
+}
+
 query Me {
   me {
     id
     email
     username
+  }
+}
+
+query GetAllDrinks {
+  getAllDrinks {
+    id
+    name
+    description
   }
 }

@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   min-height: 100vh;
+  padding: 3rem 1rem;
   gap: 1.5rem;
 }
 
@@ -12,7 +12,125 @@
   font-weight: 700;
 }
 
-.ranking-placeholder {
-  color: rgba(255, 255, 255, 0.6);
+.add-drink-section {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.add-drink-heading {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.add-drink-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.add-drink-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.add-drink-optional {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.add-drink-input {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: inherit;
+  font-size: 0.95rem;
+}
+
+.add-drink-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.add-drink-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.add-drink-error {
+  color: #f87171;
+  font-size: 0.875rem;
+}
+
+.add-drink-success {
+  color: #4ade80;
+  font-size: 0.875rem;
+}
+
+.drinks-list {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.drinks-empty {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.drink-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.drink-name {
+  font-weight: 600;
   font-size: 1rem;
+}
+
+.drink-desc {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.add-drink-optional {
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+.add-drink-input {
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: inherit;
+  font-size: 0.95rem;
+}
+
+.add-drink-input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.add-drink-error {
+  color: #f87171;
+  font-size: 0.875rem;
+}
+
+.add-drink-success {
+  color: #4ade80;
+  font-size: 0.875rem;
 }
