@@ -1,0 +1,19 @@
+overwrite: true
+sort: true
+generates:
+  src/graphql/generated.ts:
+    schema:
+      - ../backend/src/graphQL/schema/typeDefs.graphql
+    documents:
+      - src/graphql/operations.graphql
+    plugins:
+      - typescript
+      - typescript-operations
+      - typed-document-node
+    config:
+      maybeValue: T | undefined
+      enumsAsTypes: false
+      skipTypename: false
+      scalars:
+        Date: string
+        DateTime: string

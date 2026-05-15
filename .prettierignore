@@ -5,3 +5,6 @@ coverage
 .env
 .env.*
 backend/src/generated
+backend/src/lib/types/generated.ts
+frontend/src/graphql/generated.ts
+frontend/src/graphql/operations.ts
