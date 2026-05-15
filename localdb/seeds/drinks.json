@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Monster Energy Original",
+    "description": "The classic green Monster. Bold, full-flavoured energy with a punch."
+  },
+  {
+    "name": "Monster Ultra White",
+    "description": "Light, crisp and refreshing with a citrus twist. Zero sugar."
+  },
+  {
+    "name": "Monster Ultra Blue",
+    "description": "A lighter blue citrus flavour. Zero sugar with a cool, fresh finish."
+  },
+  {
+    "name": "Monster Ultra Red",
+    "description": "Mixed berry flavour with zero sugar and a smooth, fruity taste."
+  },
+  {
+    "name": "Monster Ultra Gold",
+    "description": "Fresh pineapple flavour. Zero sugar with a golden, tropical kick."
+  },
+  {
+    "name": "Monster Ultra Sunrise",
+    "description": "Orange and citrus blend. Zero sugar with a bright, tangy taste."
+  },
+  {
+    "name": "Monster Ultra Black",
+    "description": "Dark berry flavour. Zero sugar with a sophisticated, intense taste."
+  },
+  {
+    "name": "Monster Ultra Watermelon",
+    "description": "Sweet watermelon with a light, refreshing finish. Zero sugar."
+  },
+  {
+    "name": "Monster Ultra Fiesta",
+    "description": "Mango flavoured zero sugar drink with a vibrant, tropical character."
+  },
+  {
+    "name": "Monster Juiced Mango Loco",
+    "description": "Real fruit juice blended with Monster energy. Mango and citrus forward."
+  },
+  {
+    "name": "Monster Juiced Monarch",
+    "description": "Peach and nectarine juice blend with Monster's signature energy base."
+  },
+  {
+    "name": "Monster Juiced Bad Apple",
+    "description": "Crisp apple juice mixed with Monster energy for a tart, refreshing hit."
+  },
+  {
+    "name": "Monster Juiced Pacific Punch",
+    "description": "Tropical punch with real fruit juice. Smooth, sweet and energising."
+  },
+  {
+    "name": "Monster Pipeline Punch",
+    "description": "Passion fruit, orange and guava blend. A Hawaiian-inspired energy drink."
+  },
+  {
+    "name": "Monster Punch Papillon",
+    "description": "Mixed fruit punch with a bold, sweet flavour and full Monster energy hit."
+  },
+  {
+    "name": "Monster Reserve Orange Dreamsicle",
+    "description": "Creamy orange and vanilla flavour reminiscent of a classic ice cream treat."
+  },
+  {
+    "name": "Monster Reserve Watermelon",
+    "description": "Watermelon flavoured reserve edition with Monster's signature energy blend."
+  },
+  {
+    "name": "Monster Lewis Hamilton Edition",
+    "description": "Peach and nectarine flavoured zero sugar drink from Monster's F1 collaboration."
+  },
+  {
+    "name": "Monster Nitro Super Dry",
+    "description": "Nitrogen-infused for a smooth texture. Dry citrus taste with zero sugar."
+  },
+  {
+    "name": "Monster Nitro Gold Strike",
+    "description": "Nitrogen-infused peach flavour. Velvety smooth with a light, golden finish."
+  }
+]

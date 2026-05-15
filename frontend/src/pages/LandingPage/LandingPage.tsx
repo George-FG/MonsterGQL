@@ -14,9 +14,9 @@ function LandingPage() {
       <h1 className="landing-title">Welcome to Energy Drink Ranker</h1>
       {user ? (
         <div className="landing-actions">
-          <p className="landing-user">Logged in as {user.email}</p>
+          <p className="landing-user">Logged in as {user.username}</p>
           <Button variant="primary" onClick={() => navigate('/rank')}>
-            Rank Energy Drink
+            View Energy Drinks
           </Button>
           <Button onClick={clearAuth}>Logout</Button>
         </div>
@@ -25,7 +25,7 @@ function LandingPage() {
           <Button onClick={() => navigate('/login')}>Login</Button>
           <Button onClick={() => navigate('/signup')}>Sign up</Button>
           <Button variant="primary" onClick={() => navigate('/rank')}>
-            Rank Energy Drink
+            View Energy Drinks
           </Button>
         </div>
       )}

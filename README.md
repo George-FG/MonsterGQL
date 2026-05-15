@@ -9,32 +9,39 @@ A fullstack GraphQL project for ranking energy drinks.
 
 ## Project setup
 
-Clone the repo and install all dependencies from the root:
+Clone the repo, copy the local env file, then run the reset command:
 
 ```bash
-npm run install:all
+cp backend/.env.local.example backend/.env
+npm run reset
+```
+
+`npm run reset` installs all dependencies, starts the local Docker database, runs migrations, generates types, and seeds the drinks data. After it completes, the only commands needed are:
+
+```bash
+npm run backend
+npm run frontend
 ```
 
 ## Running the app
 
-For local db, simple flow is:
+For subsequent runs (after the first `reset`):
 
-```
-npm run db:start
-npm run primsa:migrate #if you havent already
-npm run prisma:generate #if you havent already
+```bash
+npm run db:start   # if the container isn't already running
 npm run backend
 npm run frontend
 ```
 
 All commands run from the root of the repository.
 
-| Command                  | Description                       |
-| ------------------------ | --------------------------------- |
-| `npm run frontend`       | Start the frontend dev server     |
-| `npm run backend`        | Start the backend server          |
-| `npm run frontend:build` | Build the frontend for production |
-| `npm run backend:build`  | Build the backend for production  |
+| Command                  | Description                                           |
+| ------------------------ | ----------------------------------------------------- |
+| `npm run reset`          | Full local setup: install, db, migrate, codegen, seed |
+| `npm run frontend`       | Start the frontend dev server                         |
+| `npm run backend`        | Start the backend server                              |
+| `npm run frontend:build` | Build the frontend for production                     |
+| `npm run backend:build`  | Build the backend for production                      |
 
 ## Code quality
 
@@ -57,18 +64,12 @@ MonsterGQL/
 
 ## Local database
 
-Requires [Docker](https://docs.docker.com/get-docker/). Start the PostgreSQL container with:
+Requires [Docker](https://docs.docker.com/get-docker/). `npm run reset` handles the full setup automatically. To manage the container manually:
 
 ```bash
 npm run db:start   # start (detached)
 npm run db:stop    # stop
-```
-
-Then copy the local env template and run migrations:
-
-```bash
-cp backend/.env.local.example backend/.env
-npm run prisma:migrate
+npm run seed       # seed drinks (safe to re-run, skips existing)
 ```
 
 See [localdb/README.md](localdb/README.md) for full details.

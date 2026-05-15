@@ -23,6 +23,9 @@
     "install:all": "npm install && npm --prefix frontend install && npm --prefix backend install",
     "prisma:generate": "npm --prefix backend run prisma:generate",
     "prisma:migrate": "npm --prefix backend run prisma:migrate",
+    "seed": "npm --prefix backend run seed",
+    "clear:drinks": "npm --prefix backend run clear:drinks",
+    "reset": "npm run install:all && npm run db:stop; npm run db:start && npm run prisma:migrate && npm run codegen && npm run clear:drinks && npm run seed",
     "codegen": "npm run prisma:generate && npm --prefix backend run codegen && npm --prefix frontend run codegen",
     "prepare": "husky"
   },
