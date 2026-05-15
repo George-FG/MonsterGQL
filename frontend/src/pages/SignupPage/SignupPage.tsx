@@ -12,11 +12,12 @@ function SignupPage() {
   const navigate = useNavigate()
   const { setAuth } = useAuth()
   const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState<string | null>(null)
 
   const [signup, { loading }] = useMutation<{
-    signup: { token: string; user: { id: string; email: string } }
+    signup: { token: string; user: { id: string; email: string; username: string } }
   }>(SIGNUP_MUTATION, {
     onCompleted: (data) => {
       setAuth(data.signup.token, data.signup.user)
@@ -28,7 +29,7 @@ function SignupPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     setError(null)
-    signup({ variables: { email, password } })
+    signup({ variables: { email, username, password } })
   }
 
   return (
@@ -43,6 +44,17 @@ function SignupPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+          />
+        </label>
+        <label className="auth-label">
+          Username
+          <input
+            className="auth-input"
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+            minLength={3}
           />
         </label>
         <label className="auth-label">
