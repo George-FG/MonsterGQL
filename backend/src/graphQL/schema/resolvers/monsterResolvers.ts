@@ -4,6 +4,15 @@ import { Resolvers } from '../../../lib/types/generated'
 export const monsterResolvers: Partial<Resolvers> = {
   Query: {
     getMonsterByName: (_: unknown, args, ctx) => getMonsterByNameLib(args.name, ctx),
+    getAllMonsterDrinks: async (_: unknown, __: unknown, ctx) => {
+      try {
+        const allMonsters = await ctx.prisma.monsterDrink.findMany()
+        return allMonsters
+      } catch (error) {
+        console.error('Error fetching all monster drinks:', error)
+        throw new Error('Failed to fetch all monster drinks', { cause: error })
+      }
+    },
   },
   Mutation: {
     addNewMonsterFlavor: async (_: unknown, args, ctx) => {

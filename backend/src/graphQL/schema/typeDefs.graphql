@@ -1,6 +1,10 @@
 type Query {
   getMonsterByName(name: String!): MonsterDrink
+  getAllMonsterDrinks: [MonsterDrink!]!
   me: User
+  getMonsterFanRank(monsterDrinkId: String!): MonsterFanRank! # this will fetch the fan rank for a specific monster drink
+  getUsersRankForMonster(monsterDrinkId: String!): [MonsterFanRank!]! # this will fetch the ranks of all users for a specific monster drink
+  getRanksForMonsterFan(monsterFanId: Int!): [MonsterFanRank!]! # this will fetch the ranks of all monster drinks for a specific monster fan
 }
 
 type Mutation {
@@ -8,6 +12,12 @@ type Mutation {
   login(email: String!, password: String!): AuthPayload!
   logout: Boolean!
   addNewMonsterFlavor(name: String!, description: String!, globalRank: Float!): MonsterDrink!
+  addNewMonsterFanRank(
+    userId: Int!
+    monsterDrinkId: String!
+    tasteRank: Int!
+    canDesignRank: Int!
+  ): MonsterFanRank!
 }
 
 type User {
@@ -25,12 +35,22 @@ type MonsterDrink {
   name: String!
   description: String!
   globalRank: Float!
-  userRank: Float
+  monsterFanRanks: [MonsterFanRank!]!
+}
+
+type MonsterFanRank {
+  monsterFan: MonsterFan!
+  monsterDrink: MonsterDrink!
+  rank: RankForMonster
+}
+
+type RankForMonster {
+  tasteRank: Int
+  canDesignRank: Int
 }
 
 type MonsterFan {
   id: Int!
   userName: String
-  rankedMonsters: [MonsterDrink!]!
-  password: String!
+  rankedMonsters: [MonsterFanRank!]!
 }
