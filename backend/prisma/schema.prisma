@@ -23,3 +23,10 @@ model Session {
   expiresAt DateTime
   createdAt DateTime @default(now())
 }
+
+model MonsterDrink {
+  id          String  @id @default(cuid())
+  name        String  @unique
+  description String
+  globalRank  Float
+}
